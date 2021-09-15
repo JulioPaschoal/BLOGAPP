@@ -11,7 +11,11 @@ router.get('/post', (req, res) => {
 });
 
 router.get('/category', (req, res) => {
-    res.send("Página de cadastro de categoria");
+    res.render("admin/category");
 });
+
+router.get('/category/add', (req, res) => {
+    res.render("admin/addcategory");
+})
 
 module.exports = router;
