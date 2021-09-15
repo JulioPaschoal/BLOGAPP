@@ -1,9 +1,10 @@
 // CARREGANDO OS MODULOS \\
-const express = require("express");
+const express = require('express');
 const handlebras = require("express-handlebars");
 const bodyParser = require("body-parser");
 const app = express();
-const  admin = require('./routes/admin');
+const admin = require('./routes/admin');
+const path = require('path');
 
 //const mongoose = require("mongoose");
 
@@ -17,8 +18,11 @@ app.engine('handlebars', handlebras({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // MONGOOSE \\
-    ///
-    
+///
+
+//PUBLIC
+app.use(express.static(path.join(__dirname, "public")));
+
 // ROTAS \\
 app.use('/admin', admin);
 
